@@ -1,0 +1,28 @@
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: distributed.transaction.model
+public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIaZeUjq4jOXEwL/HyxhsAGwOZq4PA2ctfLPONfvRQKpOqeX7upvSmxJ3cr/paScbVaTldaPOjiQUJr2GiAx3KUCAwEAAQ==
+spring:
+  datasource:
+    druid:
+      connectionProperties: config.decrypt=true;config.decrypt.key=${public-key}
+      filter:
+        slf4j:
+          enabled: true
+          statement-executable-sql-log-enable: true
+      filters: config,stat
+      initial-size: 1
+      max-active: 20
+      max-pool-prepared-statement-per-connection-size: 20
+      max-wait: 60000
+      min-evictable-idle-time-millis: 300000
+      min-idle: 1
+      password: fG0UltvDf1/iqAqtuhamkBzwKshosp+/l6AlPOyywMgS/x6keGA5UUhwdfDNZnWnoiSRIewyDF0VzCVLRYLaYA==
+      pool-prepared-statements: true
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      url: jdbc:mysql://localhost/test
+      username: root
+      validation-query: SELECT 1 FROM DUAL
